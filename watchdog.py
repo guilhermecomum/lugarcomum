@@ -9,7 +9,7 @@ api_hash = config('API_HASH')
 client_name = config('CLIENT_NAME')
 app = Client(client_name, api_id, api_hash)
 
-config = {
+firebase_config = {
     "apiKey": config('APIKEY'),
     "authDomain": config('AUTHDOMAIN'),
     "databaseURL": config('DATABASEURL'),
@@ -18,7 +18,7 @@ config = {
     "messagingSenderId": config('MESSAGINGSENDERID')
   }
 
-firebase = pyrebase.initialize_app(config)
+firebase = pyrebase.initialize_app(firebase_config)
 db = firebase.database()
 storage = firebase.storage()
 
