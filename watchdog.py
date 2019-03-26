@@ -7,7 +7,7 @@ import pyrebase
 api_id = config('API_ID', cast=int)
 api_hash = config('API_HASH')
 client_name = config('CLIENT_NAME')
-app = Client(config('BOT_TOKEN'))
+app = Client(config('BOT_TOKEN'), api_id, api_hash)
 
 firebase_config = {
     "apiKey": config('APIKEY'),
