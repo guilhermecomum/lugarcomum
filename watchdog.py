@@ -7,7 +7,7 @@ import pyrebase
 api_id = config('API_ID', cast=int)
 api_hash = config('API_HASH')
 client_name = config('CLIENT_NAME')
-app = Client(client_name, api_id, api_hash)
+app = Client(config('BOT_TOKEN'))
 
 firebase_config = {
     "apiKey": config('APIKEY'),
@@ -44,8 +44,9 @@ def handle_media(message):
     return [media_type, storage.child(file_name).get_url(media['downloadTokens'])]
 
 
-@app.on_message(Filters.channel)
+@app.on_message()
 def my_handler(client, message):
+    print(message)
     if message['reply_to_message']:
         if message.media:
             media = handle_media(message)
